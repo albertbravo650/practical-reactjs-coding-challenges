@@ -38,8 +38,10 @@ const App = () => {
     setTasks(updatedTasks);
   }
 
-  const handleUpdateTask = (updatedTask: TaskList) => {
-    setTasks((prevTasks) => prevTasks.map((task) => (task.id === updatedTask.id ? updatedTask : task)));
+  const handleUpdateTask = (updatedTask?: TaskList) => {
+    if(updatedTask) {
+      setTasks((prevTasks) => prevTasks.map((task) => (task.id === updatedTask.id ? updatedTask : task)));
+    }
     setTaskToUpdate(null);
     setShowForm(false);
   }
@@ -72,7 +74,7 @@ const App = () => {
       {showForm && <AddEditTaskForm 
         handleClose={handleCloseEditForm} 
         handleAddTask={handleAddTask} 
-        handleUpdateTask={}
+        handleUpdateTask={handleUpdateTask}
         taskToUpdate={taskToUpdate}/>}
       {/* {taskToUpdate != null && <AddEditTaskForm handleClose={handleCloseEditForm} />} */}
     </div>
