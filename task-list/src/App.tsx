@@ -42,8 +42,6 @@ const App = () => {
     if(updatedTask) {
       setTasks((prevTasks) => prevTasks.map((task) => (task.id === updatedTask.id ? updatedTask : task)));
     }
-    setTaskToUpdate(null);
-    setShowForm(false);
   }
 
   const handleEditTask = (task: TaskList) => {
